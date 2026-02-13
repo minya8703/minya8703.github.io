@@ -1,4 +1,44 @@
 // ============================================
+// PDF 인쇄 (PDF로 저장) - 스크롤 후 인쇄로 전체 렌더링 반영
+// ============================================
+const printPdfBtn = document.getElementById('printPdfBtn');
+if (printPdfBtn) {
+    printPdfBtn.addEventListener('click', () => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const duration = 2800;
+        const renderDelayAfterScroll = 1800;
+        const startY = window.scrollY || window.pageYOffset;
+        const startTime = performance.now();
+
+        function scrollToBottom(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 2);
+            const currentY = startY + (scrollHeight - startY) * easeProgress;
+            window.scrollTo(0, currentY);
+
+            if (progress < 1) {
+                requestAnimationFrame(scrollToBottom);
+            } else {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            window.print();
+                        }, renderDelayAfterScroll);
+                    });
+                });
+            }
+        }
+
+        requestAnimationFrame(scrollToBottom);
+    });
+
+    window.addEventListener('afterprint', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ============================================
 // Navigation
 // ============================================
 const navbar = document.getElementById('navbar');

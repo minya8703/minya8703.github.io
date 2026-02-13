@@ -139,6 +139,34 @@ img {
     width: 100%;
 }
 
+/* PDF 인쇄 버튼 - 오른쪽 끝 배치 */
+.nav-print-btn {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    color: #fff;
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-print-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.nav-print-btn i {
+    font-size: 16px;
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -1892,6 +1920,15 @@ img {
         opacity: 1;
     }
 
+    .nav-print-btn {
+        margin-left: 0;
+        margin-top: 10px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-color);
+        width: 100%;
+        justify-content: center;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -2031,12 +2068,22 @@ img {
     }
 }
 
-/* Print Styles */
+/* Print Styles - PDF 인쇄 시 경력 포함 전체 내용 출력 */
 @media print {
+    html, body {
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
     .navbar,
     .back-to-top,
     .scroll-indicator,
-    .hero-buttons {
+    .hero-buttons,
+    .nav-print-btn,
+    .detail-btn,
+    .modal-overlay,
+    .modal-container {
         display: none !important;
     }
 
@@ -2045,12 +2092,97 @@ img {
         padding: 40px 20px;
     }
 
-    .section {
+    .section,
+    .section-alt {
         padding: 40px 0;
         page-break-inside: avoid;
+        overflow: visible !important;
+        background: #fff !important;
+    }
+
+    .section-alt {
+        background: #f8f9fa !important;
+    }
+
+    /* 경력(Experience) 섹션 인쇄 보장 */
+    #experience {
+        overflow: visible !important;
+    }
+
+    .timeline {
+        overflow: visible !important;
+        padding-left: 60px;
     }
 
     .timeline-item {
         page-break-inside: avoid;
+        overflow: visible !important;
+    }
+
+    .timeline-content {
+        overflow: visible !important;
+        background: #fff !important;
+        box-shadow: none;
+        border: 1px solid #e0e0e0;
+        color: #222 !important;
+    }
+
+    .experience-details {
+        overflow: visible !important;
+    }
+
+    .exp-project {
+        overflow: visible !important;
+        background: #f8f9fa !important;
+        color: #222 !important;
+        page-break-inside: avoid;
+        border-left-color: #333 !important;
+    }
+
+    .exp-project h4,
+    .exp-project p,
+    .exp-project li,
+    .exp-project .duties,
+    .exp-project .achievements,
+    .exp-project .tasks,
+    .timeline-header h3,
+    .timeline-date,
+    .timeline-position {
+        color: #222 !important;
+    }
+
+    .exp-project .tech-tags {
+        color: #333 !important;
+    }
+
+    .exp-project .tech-tag {
+        background: #eee !important;
+        color: #222 !important;
+        border: 1px solid #ddd;
+    }
+
+    .architecture-diagram code {
+        background: #f0f0f0 !important;
+        color: #222 !important;
+    }
+
+    #experience ul,
+    #experience li,
+    #experience h3,
+    #experience h4,
+    #experience h5 {
+        color: #222 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    #experience .tasks ul,
+    #experience .duties ul,
+    #experience .achievements ul {
+        display: block !important;
+    }
+
+    #experience .role-flow {
+        color: #333 !important;
     }
 }
