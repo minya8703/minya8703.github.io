@@ -100,7 +100,7 @@ function animateSkillBars() {
 // Scroll Reveal Animation
 // ============================================
 function revealOnScroll() {
-    const reveals = document.querySelectorAll('.about-card, .timeline-item, .competency-card, .skill-category, .education-card, .value-card, .contact-item');
+    const reveals = document.querySelectorAll('.about-story, .strength-item, .timeline-item, .competency-card, .skill-category, .education-card, .value-card, .contact-item, .side-project-card');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

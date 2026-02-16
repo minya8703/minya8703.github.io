@@ -1578,6 +1578,286 @@ img {
     }
 }
 
+/* ============================================ */
+/* Hero Experience Badge */
+/* ============================================ */
+.hero-experience {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.hero-experience i {
+    color: var(--primary-color);
+}
+
+/* ============================================ */
+/* Contribution Badge */
+/* ============================================ */
+.exp-contribution {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0.5rem 0;
+}
+
+/* ============================================ */
+/* Critical Path */
+/* ============================================ */
+.critical-path {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+}
+.cp-item {
+    margin-bottom: 0.8rem;
+}
+.cp-item:last-child {
+    margin-bottom: 0;
+}
+.cp-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+.cp-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* ============================================ */
+/* About Section - Stories & Strengths */
+/* ============================================ */
+.about-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.about-heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.text-accent {
+    color: var(--primary-color);
+}
+.about-stories {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+.about-story {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin-bottom: 16px;
+}
+.about-story p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin: 0;
+}
+.about-story em {
+    color: var(--primary-color);
+    font-style: normal;
+    font-weight: 500;
+}
+.about-story strong {
+    color: var(--text-color);
+}
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.strength-item {
+    background: white;
+    padding: 25px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    transition: var(--transition);
+}
+.strength-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+.strength-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #FFF5F2, #FFEEE8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.strength-icon i {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+.strength-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+.strength-content p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ============================================ */
+/* Experience - Leave & Live Link & Growth Note */
+/* ============================================ */
+.exp-leave {
+    border-left-color: var(--text-muted);
+    background: #f0f0f0;
+}
+.live-link {
+    font-size: 12px;
+    color: #166534;
+    background: #dcfce7;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.growth-note {
+    font-size: 14px;
+    color: var(--primary-color);
+    font-style: italic;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background: #FFF5F2;
+    border-radius: var(--radius-sm);
+    line-height: 1.6;
+}
+
+/* ============================================ */
+/* Side Projects */
+/* ============================================ */
+.side-project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+.side-project-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+.side-project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.project-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+.project-header h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+.project-status-live {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 500;
+}
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.project-link:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+/* ============================================ */
+/* Values Grid - 4 columns for philosophy */
+/* ============================================ */
+@media (min-width: 769px) {
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================ */
+/* Responsive - New Elements */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .strengths-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .strengths-grid {
+        grid-template-columns: 1fr;
+    }
+    .strength-item {
+        flex-direction: row;
+    }
+    .critical-path {
+        padding: 0.8rem;
+    }
+    .side-project-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .hero-experience {
+        justify-content: center;
+    }
+    .about-heading {
+        font-size: 22px;
+    }
+}
+
 /* Print Styles */
 @media print {
     .navbar,
