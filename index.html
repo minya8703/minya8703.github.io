@@ -689,27 +689,35 @@
             </h2>
 
             <div class="side-project-grid">
-                <!-- Markdown Viewer -->
+                <!-- Markdown Viewer - AI 협업 모델 연구 -->
                 <div class="side-project-card">
                     <div class="project-header">
-                        <h3><i class="fas fa-file-alt"></i> Markdown Viewer</h3>
+                        <h3><i class="fas fa-robot"></i> AI-Native 개발 프로세스 검증</h3>
                         <span class="project-status live">🟢 운영 중</span>
                     </div>
-                    <p class="exp-contribution"><strong>기여도: 100%</strong> (1인 개발)</p>
+                    <p class="exp-contribution"><strong>기여도: 100%</strong> (1인 R&D)</p>
+                    <p class="project-subtitle" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Markdown Viewer 개발을 통한 AI 개발 도구 활용 전략 연구
+                    </p>
                     
                     <!-- 크리티컬 패스 -->
                     <div class="critical-path">
                         <div class="cp-item">
-                            <span class="cp-label">🔍 해결하고 싶었던 문제</span>
-                            <p>마크다운 파일을 안전하게 저장하고 어디서든 볼 수 있는 개인 도구가 필요했음.</p>
+                            <span class="cp-label">🔍 연구 목적</span>
+                            <p><strong>AI 개발 도구(Cursor, Copilot 등)만으로 코드 생성 → 배포까지</strong> 전 과정이 가능한지 검증.<br>
+                            시니어 엔지니어 관점에서 AI를 어떻게 활용하면 좋을지 고민을 정리하는 프로젝트.</p>
                         </div>
                         <div class="cp-item">
-                            <span class="cp-label">💡 적용한 기술</span>
-                            <p>Google OAuth 로그인, <strong>JWT 인증</strong>, AES-GCM 파일 암호화, <strong>Path Traversal 방지</strong> 등 보안 고려.</p>
+                            <span class="cp-label">💡 수행 내용</span>
+                            <p>• AI 가이드 100% 활용: 설계 → 구현 → 보안 적용 → NAS 서버 배포<br>
+                            • 보안 무결성 검증: AI가 생성한 AES-GCM, JWT, Path Traversal 방지 로직을 <strong>시니어 관점에서 교차 검증</strong><br>
+                            • 자동 배포 파이프라인: AI 제안 스크립트로 Synology NAS 배포 자동화</p>
                         </div>
                         <div class="cp-item">
-                            <span class="cp-label">📈 결과</span>
-                            <p>개인 서버에 배포해 <strong>현재 운영 중</strong>. 실무와 동일한 설계 원칙 적용.</p>
+                            <span class="cp-label">📈 도출한 결론</span>
+                            <p>• <strong>역할 분담 명확화</strong>: 반복 구현은 AI에게, 엔지니어는 아키텍처 설계·보안 검증에 집중<br>
+                            • <strong>AI 한계 확인</strong>: 복잡한 비즈니스 로직과 성능 최적화는 인간 엔지니어의 검증 필수<br>
+                            • 향후 AI 협업 프로세스 표준화 기반 마련</p>
                         </div>
                     </div>
                     
@@ -719,6 +727,8 @@
                         <span class="tech-tag">Spring Security</span>
                         <span class="tech-tag">JPA</span>
                         <span class="tech-tag">MariaDB</span>
+                        <span class="tech-tag">Cursor</span>
+                        <span class="tech-tag">AI-Driven Dev</span>
                     </div>
                     <div class="project-links">
                         <a href="https://markdown-viewer.life" target="_blank" class="project-link">
