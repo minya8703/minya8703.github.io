@@ -6,9 +6,9 @@
 }
 
 :root {
-    --primary: #667eea;
-    --primary-dark: #764ba2;
-    --secondary: #11998e;
+    --primary: #1E3A5F;
+    --primary-dark: #152C4A;
+    --secondary: #E8843C;
     --text-dark: #1a1a2e;
     --text-muted: #666;
     --bg-light: #f8f9fa;
@@ -111,7 +111,7 @@ body {
     display: flex;
     align-items: center;
     padding: 100px 20px 60px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    background: #f5f7fa;
 }
 
 .hero-container {
@@ -136,10 +136,7 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     margin: 10px 0;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary);
 }
 
 .hero-name-en {
@@ -185,7 +182,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     color: white;
 }
 
@@ -197,7 +194,7 @@ body {
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
 }
 
 .hero-social {
@@ -277,7 +274,7 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding: 30px;
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+    background: #f5f7fa;
     border-radius: 10px;
     position: relative;
 }
@@ -311,14 +308,14 @@ body {
 
 .strength-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.15);
 }
 
 .strength-icon {
     width: 60px;
     height: 60px;
     margin: 0 auto 15px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -344,7 +341,7 @@ body {
 }
 
 .company-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     color: white;
     padding: 20px 30px;
     border-radius: 15px 15px 0 0;
@@ -429,7 +426,7 @@ body {
 }
 
 .result-highlight {
-    background: linear-gradient(120deg, #fff3cd 0%, #fff3cd 100%);
+    background: #fff3cd;
     padding: 2px 8px;
     border-radius: 4px;
     font-weight: 600;
@@ -467,8 +464,8 @@ body {
 }
 
 .tech-tag {
-    background: #e8f4fd;
-    color: #1976d2;
+    background: #e8f0f8;
+    color: #1E3A5F;
     padding: 5px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -478,7 +475,7 @@ body {
 .project-divider {
     border: none;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     margin: 0;
 }
 
@@ -580,7 +577,7 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding: 30px;
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+    background: #f5f7fa;
     border-radius: 10px;
 }
 
@@ -613,14 +610,14 @@ body {
 
 .value-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.15);
 }
 
 .value-icon {
     width: 60px;
     height: 60px;
     margin: 0 auto 15px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -660,7 +657,7 @@ body {
 
 .contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.2);
 }
 
 .contact-card i {
@@ -923,18 +920,18 @@ body {
 }
 
 .modal-task-item:hover {
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.1);
 }
 
 .modal-task-highlight {
-    background: linear-gradient(135deg, #f8f9ff 0%, #eef0ff 100%);
+    background: #f5f7fa;
     border: 1.5px solid var(--primary);
 }
 
 .modal-task-num {
     flex: 0 0 36px;
     height: 36px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -952,8 +949,8 @@ body {
 
 .modal-task-badge {
     display: inline-block;
-    background: #e8f4fd;
-    color: #1976d2;
+    background: #e8f0f8;
+    color: #1E3A5F;
     padding: 2px 10px;
     border-radius: 10px;
     font-size: 0.75rem;
@@ -974,7 +971,7 @@ body {
 }
 
 .modal-stat {
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+    background: #f5f7fa;
     border-radius: 12px;
     padding: 20px 15px;
     text-align: center;
