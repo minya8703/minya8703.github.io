@@ -1,133 +1,123 @@
-// Navigation
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const navbar = document.getElementById('navbar');
+// ===== Slide Navigation =====
+const slidesWrapper = document.getElementById('slidesWrapper');
+const dots = document.querySelectorAll('.dot');
+const arrowLeft = document.getElementById('arrowLeft');
+const arrowRight = document.getElementById('arrowRight');
+const totalSlides = 4;
+let currentSlide = 0;
 
-// Hamburger menu toggle
-hamburger?.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+function goToSlide(index) {
+    if (index < 0 || index >= totalSlides) return;
+    currentSlide = index;
+    slidesWrapper.style.transform = `translateX(-${currentSlide * 100}vw)`;
 
-// Close menu on link click
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+    // Update dots
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+    });
+
+    // Update arrows
+    arrowLeft.classList.toggle('hidden', currentSlide === 0);
+    arrowRight.classList.toggle('hidden', currentSlide === totalSlides - 1);
+}
+
+// Dot click
+dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        goToSlide(parseInt(dot.dataset.slide));
     });
 });
 
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+// Arrow click
+arrowLeft.addEventListener('click', () => goToSlide(currentSlide - 1));
+arrowRight.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    // Don't navigate if modal is open
+    if (document.querySelector('.modal-overlay.active')) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'hidden';
             });
         }
-    });
-});
+        return;
+    }
 
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-
-    // Navbar shadow on scroll
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    if (e.key === 'ArrowLeft') {
+        goToSlide(currentSlide - 1);
+    } else if (e.key === 'ArrowRight') {
+        goToSlide(currentSlide + 1);
     }
 });
 
-// PDF 인쇄 (PDF로 저장) - 스크롤 후 인쇄로 전체 렌더링 반영
-const printPdfBtn = document.getElementById('printPdfBtn');
-if (printPdfBtn) {
-    printPdfBtn.addEventListener('click', () => {
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const duration = 2800;
-        const renderDelayAfterScroll = 1800;
-        const startY = window.scrollY || window.pageYOffset;
-        const startTime = performance.now();
+// Touch swipe support
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
 
-        function scrollToBottom(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeProgress = 1 - Math.pow(1 - progress, 2);
-            const currentY = startY + (scrollHeight - startY) * easeProgress;
-            window.scrollTo(0, currentY);
+slidesWrapper.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+}, { passive: true });
 
-            if (progress < 1) {
-                requestAnimationFrame(scrollToBottom);
-            } else {
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        setTimeout(() => {
-                            window.print();
-                        }, renderDelayAfterScroll);
-                    });
-                });
-            }
+slidesWrapper.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+
+    const diffX = touchStartX - touchEndX;
+    const diffY = Math.abs(touchStartY - touchEndY);
+
+    // Only swipe if horizontal movement is dominant and significant
+    if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+        if (diffX > 0) {
+            goToSlide(currentSlide + 1);
+        } else {
+            goToSlide(currentSlide - 1);
         }
+    }
+}, { passive: true });
 
-        requestAnimationFrame(scrollToBottom);
+// Mouse wheel horizontal navigation (on slides that aren't scrollable / at scroll boundaries)
+slidesWrapper.addEventListener('wheel', (e) => {
+    if (document.querySelector('.modal-overlay.active')) return;
+
+    const slide = document.getElementById(`slide-${currentSlide}`);
+    const atTop = slide.scrollTop === 0;
+    const atBottom = slide.scrollTop + slide.clientHeight >= slide.scrollHeight - 2;
+
+    // If the slide has scrollable content and we're in the middle, let it scroll normally
+    if (slide.scrollHeight > slide.clientHeight + 5 && !atTop && !atBottom) {
+        return;
+    }
+
+    // At boundaries, navigate slides
+    if (e.deltaY > 15 && atBottom) {
+        goToSlide(currentSlide + 1);
+    } else if (e.deltaY < -15 && atTop) {
+        goToSlide(currentSlide - 1);
+    }
+}, { passive: true });
+
+// ===== Competency card click to navigate =====
+document.querySelectorAll('.competency-card[data-slide-target]').forEach(card => {
+    card.addEventListener('click', () => {
+        const target = parseInt(card.dataset.slideTarget);
+        goToSlide(target);
     });
-
-    window.addEventListener('afterprint', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements
-document.querySelectorAll('.company-section, .skill-category, .contact-card, .value-card, .strength-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
 });
 
-// Modal open/close
-document.querySelectorAll('.modal-trigger').forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
+// ===== Modal open/close =====
+document.querySelectorAll('.card-detail-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const modalId = trigger.getAttribute('data-modal');
+        const modalId = btn.dataset.modal;
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'auto';
         }
     });
 });
@@ -136,7 +126,7 @@ document.querySelectorAll('.modal-close').forEach(btn => {
     btn.addEventListener('click', () => {
         const modal = btn.closest('.modal-overlay');
         modal.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.style.overflow = 'hidden';
     });
 });
 
@@ -144,16 +134,10 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) {
             overlay.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.style.overflow = 'hidden';
         }
     });
 });
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    }
-});
+// Initialize
+goToSlide(0);
