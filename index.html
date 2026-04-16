@@ -1,604 +1,689 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>민야령 | Backend Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css?v=3">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>민야령 | Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Slide Navigation -->
-    <nav class="slide-nav">
-        <div class="slide-dots">
-            <button class="dot active" data-slide="0"><span>소개</span></button>
-            <button class="dot" data-slide="1"><span>아키텍처</span></button>
-            <button class="dot" data-slide="2"><span>DB·품질</span></button>
-            <button class="dot" data-slide="3"><span>리더십</span></button>
-        </div>
-    </nav>
 
-    <!-- Arrow Navigation -->
-    <button class="slide-arrow arrow-left" id="arrowLeft" aria-label="이전">
-        <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="slide-arrow arrow-right" id="arrowRight" aria-label="다음">
-        <i class="fas fa-chevron-right"></i>
-    </button>
+<nav>
+  <span class="nav-brand">minya8703</span>
+  <a href="#stack">기술</a>
+  <a href="#projects">프로젝트</a>
+  <a href="#career">경력</a>
+  <a href="#industry">도메인</a>
+</nav>
 
-    <!-- Slides Container -->
-    <div class="slides-wrapper" id="slidesWrapper">
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Backend Engineer</div>
+    <h1>
+      엔터프라이즈 시스템을<br>
+      <span>연결하고 안정화</span>하는<br>
+      백엔드 엔지니어
+    </h1>
+    <p class="hero-desc">
+      EAI · MSA · 데이터 파이프라인 9년.<br>
+      금융·항공·에너지 도메인 실전 경험과<br>
+      Java 21 · Spring Boot 3 · Kafka · Redis · Kubernetes 기반 현대 아키텍처를 연결합니다.
+    </p>
 
-        <!-- ==================== SLIDE 1: 원 페이저 ==================== -->
-        <section class="slide slide-intro" id="slide-0">
-            <div class="slide-inner">
-                <!-- 상단: 프로필 -->
-                <div class="intro-header">
-                    <div class="intro-photo">
-                        <img src="images/profile.jpg" alt="민야령" class="profile-photo">
-                    </div>
-                    <div class="intro-info">
-                        <p class="intro-label">Backend Developer · System Integration Specialist</p>
-                        <h1 class="intro-name">민야령</h1>
-                        <p class="intro-name-en">Min YaRyung</p>
-                        <div class="intro-exp">
-                            <span class="exp-total">총 경력 9년</span>
-                            <div class="exp-tags">
-                                <span class="exp-tag"><i class="fas fa-server"></i> Backend 7년</span>
-                                <span class="exp-tag tag-db"><i class="fas fa-database"></i> DB & System Integration (ETL, EAI) 5년</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 포지셔닝 문장 -->
-                <div class="intro-positioning">
-                    <p class="positioning-text">
-                        멱등성 설계와 대규모 데이터 정합성 검증으로<br>
-                        <strong>미션크리티컬 시스템의 무장애 운영</strong>을 이끄는<br>
-                        엔터프라이즈 백엔드 & DB 전문가
-                    </p>
-                </div>
-
-                <!-- 커리어 타임라인 -->
-                <div class="intro-timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-period">2013~2015</span>
-                        <span class="timeline-company">아시아정보시스템(일본)</span>
-                        <span class="timeline-role">Data Engineer</span>
-                    </div>
-                    <div class="timeline-arrow"><i class="fas fa-chevron-right"></i></div>
-                    <div class="timeline-item">
-                        <span class="timeline-period">2017~2021</span>
-                        <span class="timeline-company">스마트아이엔지(일본)</span>
-                        <span class="timeline-role">Full-stack Dev</span>
-                    </div>
-                    <div class="timeline-arrow"><i class="fas fa-chevron-right"></i></div>
-                    <div class="timeline-item active">
-                        <span class="timeline-period">2023~2026.03</span>
-                        <span class="timeline-company">NARINER</span>
-                        <span class="timeline-role">Integration Architect</span>
-                    </div>
-                </div>
-
-                <!-- 4개 핵심역량 카드 -->
-                <div class="intro-competencies">
-                    <div class="competency-card" data-slide-target="1">
-                        <div class="competency-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>무장애 운영 아키텍처</h3>
-                        <p>멱등성 설계와 장애 예방 아키텍처로 미션크리티컬 시스템 안정화</p>
-                    </div>
-                    <div class="competency-card" data-slide-target="2">
-                        <div class="competency-icon"><i class="fas fa-database"></i></div>
-                        <h3>DB·데이터 품질 설계</h3>
-                        <p>2,500만 건 무결성 검증, PL/SQL·ETL 최적화, TDD 80~100% 커버리지</p>
-                    </div>
-                    <div class="competency-card" data-slide-target="3">
-                        <div class="competency-icon"><i class="fas fa-users"></i></div>
-                        <h3>기술 리더십</h3>
-                        <p>2인 팀 기술 전수, 문서 3건+ 작성으로 팀 역량을 강화하는 풀사이클 개발</p>
-                    </div>
-                    <div class="competency-card" data-slide-target="3">
-                        <div class="competency-icon"><i class="fas fa-industry"></i></div>
-                        <h3>산업 전문성</h3>
-                        <p>금융·항공·에너지 등 미션크리티컬 도메인 9년 경험</p>
-                    </div>
-                </div>
-
-                <!-- 클로징 + 연락처 -->
-                <div class="intro-closing">
-                    <p class="closing-text">안정적이고 유연한 시스템을 설계하는 전문가로 <strong>귀사에 기여</strong>하고 싶습니다.</p>
-                    <div class="intro-contacts">
-                        <a href="minya8703@gmail.com"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="a2cfcbccdbc39a959291e2c5cfc3cbce8cc1cdcf">minya8703@gmail.com</span></a>
-                        <a href="https://github.com/minya8703" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.linkedin.com/in/minya8703" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://difud1106.tistory.com/" target="_blank"><i class="fas fa-blog"></i> Blog</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== SLIDE 2: 핵심역량 1 - 무장애 운영 아키텍처 ==================== -->
-        <section class="slide slide-competency" id="slide-1">
-            <div class="slide-inner">
-                <div class="competency-header">
-                    <span class="competency-num">핵심역량 01</span>
-                    <h2>무장애 운영 아키텍처</h2>
-                    <p class="competency-subtitle">명확한 목표 설정 → 컴포넌트 설계 → 트레이드오프 판단으로 안정성과 성능을 동시에 달성합니다.</p>
-                </div>
-
-                <!-- 프로젝트 카드 2개 -->
-                <div class="project-cards">
-                    <div class="project-card">
-                        <h3>MSA 기반 세금계산서·FI 회계 솔루션</h3>
-                        <p class="card-company">나라이너 · 2024.02 ~ 현재</p>
-                        <p class="card-desc"><strong>[목표]</strong> 중복 발행 0건 + 응답시간 70% 단축을 설계 목표로 설정. <strong>[설계]</strong> SAP JCo ↔ Relay ↔ 회계 솔루션 간 MSA 구조를 채택하고, 멱등성 키 패턴으로 중복 발행을 원천 차단. <strong>[트레이드오프]</strong> 동기 처리의 안정성 vs 비동기의 속도 사이에서 Relay Server 분리로 양쪽을 달성.</p>
-                        <div class="card-stats">
-                            <div class="stat">
-                                <span class="stat-value">70%</span>
-                                <span class="stat-label">응답시간 단축</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">0건</span>
-                                <span class="stat-label">중복 발행 오류</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">5분→1.5분</span>
-                                <span class="stat-label">건당 처리시간</span>
-                            </div>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">SAP JCo</span>
-                            <span class="tech-tag">RESTful API</span>
-                            <span class="tech-tag">MariaDB</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <a href="#" class="card-detail-btn" data-modal="modal-msa">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="card-live">🟢 운영 중 (2021~현재)</div>
-                        <h3>MONEX 증권 MFA 인증 시스템</h3>
-                        <p class="card-company">스마트아이엔지 · 2021.03 ~ 2021.05</p>
-                        <p class="card-desc"><strong>[목표]</strong> 레거시 무중단 + 보안 강화를 동시 달성. <strong>[설계]</strong> Servlet Filter 패턴으로 기존 코드 수정 없이 인증 레이어를 비침투적으로 추가. <strong>[트레이드오프]</strong> 보안 5단계의 안전성 vs UX 이탈률 → 2단계 간소화를 제안해 보안성은 유지하면서 사용성 개선.</p>
-                        <div class="card-stats">
-                            <div class="stat">
-                                <span class="stat-value">99.2%</span>
-                                <span class="stat-label">SMS 성공률</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">30%↓</span>
-                                <span class="stat-label">부정 로그인</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">5년+</span>
-                                <span class="stat-label">무장애 운영</span>
-                            </div>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Servlet Filter</span>
-                            <span class="tech-tag">SoftBank SMS API</span>
-                            <span class="tech-tag">MyBatis</span>
-                            <span class="tech-tag">Oracle</span>
-                        </div>
-                        <a href="#" class="card-detail-btn" data-modal="monex-modal">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 핵심 키워드 -->
-                <div class="slide-keywords">
-                    <span class="keyword">멱등성 키 패턴</span>
-                    <span class="keyword">Servlet Filter 통합</span>
-                    <span class="keyword">무중단 레이어 추가</span>
-                    <span class="keyword">장애 예방 설계</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== SLIDE 3: 핵심역량 2 - 예방적 품질 설계 ==================== -->
-        <section class="slide slide-competency" id="slide-2">
-            <div class="slide-inner">
-                <div class="competency-header">
-                    <span class="competency-num">핵심역량 02</span>
-                    <h2>DB·데이터 품질 설계</h2>
-                    <p class="competency-subtitle">DB 설계·PL/SQL·ETL 기반의 데이터 품질 목표를 설정하고, TDD와 검증 전략으로 달성합니다.</p>
-                </div>
-
-                <div class="project-cards">
-                    <div class="project-card">
-                        <h3>ANA 항공 신 발권 시스템 복구</h3>
-                        <p class="card-company">스마트아이엔지 · 2021.01 ~ 2021.02</p>
-                        <p class="card-desc"><strong>[목표]</strong> 중단된 프로젝트를 2개월 내 정상화 + 후임 유지보수 가능한 품질 확보. <strong>[설계]</strong> 200줄+ 메서드를 30줄 단위 모듈로 분리하고, JUnit5 358개 테스트로 안전망 구축. <strong>[트레이드오프]</strong> 빠른 납기 vs 코드 품질 → 리팩터링과 테스트를 병행해 양쪽 달성.</p>
-                        <div class="card-stats">
-                            <div class="stat">
-                                <span class="stat-value">358개</span>
-                                <span class="stat-label">JUnit5 테스트</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">80%+</span>
-                                <span class="stat-label">테스트 커버리지</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">200→30줄</span>
-                                <span class="stat-label">메서드 리팩터링</span>
-                            </div>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">intra-mart</span>
-                            <span class="tech-tag">JUnit5</span>
-                            <span class="tech-tag">Oracle</span>
-                        </div>
-                        <a href="#" class="card-detail-btn" data-modal="modal-ana">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Credit Saison 2,500만 건 데이터 마이그레이션</h3>
-                        <p class="card-company">아시아정보시스템 · 2013.04 ~ 2014.12 (1·2차)</p>
-                        <p class="card-desc"><strong>[목표]</strong> 2,500만 건 정합성 이슈 0건 달성. <strong>[설계]</strong> PL/SQL 변환 프로시저 + Informatica ETL로 Teradata→Oracle 간 대규모 마이그레이션 파이프라인 구축. <strong>[트레이드오프]</strong> 처리 속도 vs 데이터 정합성 → 검증 우선 전략으로 1차에서 성과 인정받아 2차 재투입.</p>
-                        <div class="card-stats">
-                            <div class="stat">
-                                <span class="stat-value">2,500만</span>
-                                <span class="stat-label">회원 데이터</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">0건</span>
-                                <span class="stat-label">정합성 이슈</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">2차 재투입</span>
-                                <span class="stat-label">성과 인정</span>
-                            </div>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Informatica PowerCenter</span>
-                            <span class="tech-tag">Oracle</span>
-                            <span class="tech-tag">Teradata</span>
-                            <span class="tech-tag">PL/SQL</span>
-                        </div>
-                        <a href="#" class="card-detail-btn" data-modal="modal-saison">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="slide-keywords">
-                    <span class="keyword">PL/SQL · ETL 최적화</span>
-                    <span class="keyword">대규모 데이터 정합성</span>
-                    <span class="keyword">TDD 80~100%</span>
-                    <span class="keyword">DB 마이그레이션</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== SLIDE 4: 커뮤니케이션·리더십 + 산업전문성 + 클로징 ==================== -->
-        <section class="slide slide-final" id="slide-3">
-            <div class="slide-inner">
-                <!-- 핵심역량 3: 커뮤니케이션·리더십 -->
-                <div class="final-section">
-                    <div class="competency-header compact">
-                        <span class="competency-num">핵심역량 03</span>
-                        <h2>기술 리더십 & 풀사이클 개발</h2>
-                    </div>
-                    <div class="leadership-grid">
-                        <div class="leadership-item">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <h4>기술 멘토링</h4>
-                            <p>webMethods 2인 팀 기술 전수 및 실무 투입 지원, 신입사원 PL/SQL 역량 강화, Appium 테스트 자동화 가이드 작성 및 팀 공유</p>
-                        </div>
-                        <div class="leadership-item">
-                            <i class="fas fa-sync-alt"></i>
-                            <h4>풀사이클 SDLC</h4>
-                            <p>요구사항 분석 → 설계 → 구현 → 통합테스트 → 운영/장애 대응까지 전 과정 수행</p>
-                        </div>
-                        <div class="leadership-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <h4>선제적 문제 해결</h4>
-                            <p>메모리 누수 선제 감지로 장애 예방, 인증 플로우 개선안 제안·채택 등 자발적 문제 해결</p>
-                        </div>
-                        <div class="leadership-item">
-                            <i class="fas fa-file-alt"></i>
-                            <h4>체계적 문서화</h4>
-                            <p>재시도/중복방지 설계 원칙 수립, 테스트 가이드 작성, 팀 온보딩 자료 정리</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 핵심역량 4: 산업 전문성 -->
-                <div class="final-section">
-                    <div class="competency-header compact">
-                        <span class="competency-num">핵심역량 04</span>
-                        <h2>미션크리티컬 산업 전문성</h2>
-                    </div>
-                    <div class="domain-grid">
-                        <div class="domain-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>금융</span>
-                            <small>MONEX · Credit Saison · MUFG</small>
-                        </div>
-                        <div class="domain-item">
-                            <i class="fas fa-plane"></i>
-                            <span>항공</span>
-                            <small>ANA (전일본공수)</small>
-                        </div>
-                        <div class="domain-item">
-                            <i class="fas fa-bolt"></i>
-                            <span>에너지</span>
-                            <small>규슈전력</small>
-                        </div>
-                        <div class="domain-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>제조</span>
-                            <small>신일본제철</small>
-                        </div>
-                        <div class="domain-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>교육</span>
-                            <small>JASSO</small>
-                        </div>
-                    </div>
-                    <p class="domain-summary">일본 10년 + 한국 3년 — 장애 허용도가 극히 낮은 엔터프라이즈 시스템을 일관되게 담당해왔습니다.</p>
-                </div>
-
-                                <!-- 클로징 -->
-                <div class="final-closing">
-                    <div class="closing-message">
-                        <p>검증으로 시작하고, 안정으로 마무리하는 개발자.<br>
-                        <strong>귀사의 시스템을 더 안정적이고 유연하게 만드는 데 기여하겠습니다.</strong></p>
-                    </div>
-                    <div class="closing-contacts">
-                        <a href="minya8703@gmail.com"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="c9a4a0a7b0a8f1fef9fa89aea4a8a0a5e7aaa6a4">minya8703@gmail.com</span></a>
-                        <a href="https://github.com/minya8703" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.linkedin.com/in/minya8703" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://difud1106.tistory.com/" target="_blank"><i class="fas fa-blog"></i> Blog</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div><!-- /slides-wrapper -->
-
-    <!-- ==================== 모달들 ==================== -->
-
-    <!-- MSA 세금계산서 모달 -->
-    <div class="modal-overlay" id="modal-msa">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="닫기">&times;</button>
-            <h2 class="modal-title">MSA 기반 세금계산서·FI 회계 솔루션</h2>
-            <table class="modal-table">
-                <tr><th>기간</th><td>2024.02 ~ 현재</td></tr>
-                <tr><th>아키텍처</th><td>SAP JCo Server ↔ Relay Server ↔ 회계 솔루션 (MSA 패턴)</td></tr>
-                <tr><th>서비스 대상</th><td>SAP 사용 기업 세금계산서 + 소규모 기업 FI 회계 솔루션 (듀얼 채널)</td></tr>
-            </table>
-
-            <h3 class="modal-section-title">수행 업무</h3>
-            <div class="modal-tasks">
-                <div class="modal-task-item">
-                    <div class="modal-task-num">1</div>
-                    <div class="modal-task-body">
-                        <h4>MSA 아키텍처 전체 설계</h4>
-                        <p>SAP JCo Server ↔ Relay Server ↔ 회계 솔루션 간 통신 아키텍처를 처음부터 설계. 서비스 간 느슨한 결합과 독립 배포를 고려한 구조.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">2</div>
-                    <div class="modal-task-body">
-                        <h4>멱등성 키 패턴 설계 및 구현</h4>
-                        <p>동일 요청 시 기존 결과를 반환하는 멱등성 키 패턴으로 중복 발행을 원천 차단. 세금계산서 중복 발행이라는 법적 리스크를 설계 단계에서 해소.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">3</div>
-                    <div class="modal-task-body">
-                        <h4>응답시간 70% 단축</h4>
-                        <p>건당 처리시간을 5분에서 1.5분으로 단축. 비동기 처리와 캐싱 전략 적용.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="modal-section-title">주요 성과</h3>
-            <div class="modal-stats">
-                <div class="modal-stat"><span class="modal-stat-value">70%</span><span class="modal-stat-label">응답시간 단축</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">0건</span><span class="modal-stat-label">중복 발행 오류</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">5→1.5분</span><span class="modal-stat-label">건당 처리시간</span></div>
-            </div>
-
-            <h3 class="modal-section-title">기술 스택</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">Spring Data JPA</span>
-                <span class="tech-tag">SAP JCo</span>
-                <span class="tech-tag">RESTful API</span>
-                <span class="tech-tag">MariaDB</span>
-                <span class="tech-tag">React.js</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">Jenkins</span>
-            </div>
-        </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">9<span class="stat-unit">년</span></div>
+        <div class="stat-label">총 경력</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50<span class="stat-unit">개+</span></div>
+        <div class="stat-label">EAI 인터페이스 운영</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2.5<span class="stat-unit">천만</span></div>
+        <div class="stat-label">데이터 이관 정합성 100%</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">11</div>
+        <div class="stat-label">엔터프라이즈 프로젝트</div>
+      </div>
     </div>
 
-    <!-- MONEX 모달 -->
-    <div class="modal-overlay" id="monex-modal">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="닫기">&times;</button>
-            <h2 class="modal-title">MONEX 증권 MFA 인증 시스템</h2>
-            <table class="modal-table">
-                <tr><th>기간</th><td>2021.03 ~ 2021.05</td></tr>
-                <tr><th>개발 형태</th><td>기능 추가 (MFA 인증 시스템)</td></tr>
-                <tr><th>개발 범위</th><td>고객 사이트 + 관리자 사이트 (설계/백엔드/프론트엔드)</td></tr>
-                <tr><th>운영 상태</th><td><span class="status-live">🟢 현재 운영 중 (2021~)</span></td></tr>
-            </table>
-
-            <h3 class="modal-section-title">수행 업무</h3>
-            <div class="modal-tasks">
-                <div class="modal-task-item">
-                    <div class="modal-task-num">1</div>
-                    <div class="modal-task-body">
-                        <h4>회원 정보 페이지 <span class="modal-task-badge">설계 / 백엔드 / 프론트엔드</span></h4>
-                        <p>MFA 기능 추가로 인한 회원 정보 화면 설계 및 수정. 기존 회원 정보 테이블에 SMS 인증 여부, 휴대폰 번호 등 신규 컬럼 추가 및 화면 연동.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">2</div>
-                    <div class="modal-task-body">
-                        <h4>이중 요소 인증 (2FA) / SMS 인증 페이지 <span class="modal-task-badge">설계 / 백엔드 / 프론트엔드</span></h4>
-                        <p>SoftBank SMS API 연동을 통한 인증 코드 발송 기능 구현. 6자리 인증 코드 생성, 3분 만료 시간 관리, 5회 실패 시 계정 잠금 로직 설계. 재발송 시 기존 코드 무효화 처리.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">3</div>
-                    <div class="modal-task-body">
-                        <h4>휴대폰 인증 페이지 <span class="modal-task-badge">설계</span></h4>
-                        <p>휴대폰 기기 고유 정보를 활용한 인증 플로우 설계. 신규 기기 등록, 기기 변경, 분실 시 복구 프로세스 포함.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">4</div>
-                    <div class="modal-task-body">
-                        <h4>Servlet Filter 기반 인증 통합 <span class="modal-task-badge">설계 / 백엔드</span></h4>
-                        <p>기존 레거시 시스템(10년+ 운영)에 영향 없이 인증 레이어 추가. Filter Chain 패턴으로 로그인 후 MFA 검증 단계 삽입. 세션 기반 인증 상태 관리.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item modal-task-highlight">
-                    <div class="modal-task-num">★</div>
-                    <div class="modal-task-body">
-                        <h4>인증 플로우 개선안 제안 <span class="modal-task-badge">제안 및 채택</span></h4>
-                        <p>보안팀 초기 요구사항은 4단계 인증 플로우였으나, 사용자 이탈률 우려 및 UX 관점에서 2단계로 간소화하는 대안을 제안. 보안성은 유지하면서 사용성을 개선한 안이 최종 채택됨.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="modal-section-title">주요 성과</h3>
-            <div class="modal-stats">
-                <div class="modal-stat"><span class="modal-stat-value">99.2%</span><span class="modal-stat-label">SMS 발송 성공률</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">30%</span><span class="modal-stat-label">부정 로그인 감소</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">0건</span><span class="modal-stat-label">서비스 장애</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">4→2</span><span class="modal-stat-label">인증 단계 개선</span></div>
-            </div>
-
-            <h3 class="modal-section-title">기술 스택</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">Servlet Filter</span>
-                <span class="tech-tag">SoftBank SMS API</span>
-                <span class="tech-tag">MyBatis</span>
-                <span class="tech-tag">Oracle</span>
-                <span class="tech-tag">JSP</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
-
-            <h3 class="modal-section-title">운영 페이지</h3>
-            <div style="margin-top:10px;">
-                <a href="https://info.monex.co.jp/help/security/sms-auth/apply.html" target="_blank" class="project-link"><i class="fas fa-globe"></i> SMS 인증 시스템 안내</a>
-                <a href="https://info.monex.co.jp/help/security/mobile-auth/operation.html" target="_blank" class="project-link"><i class="fas fa-globe"></i> 휴대폰 인증 시스템 안내</a>
-            </div>
-        </div>
+    <div class="hero-links">
+      <a href="mailto:minya8703@gmail.com" class="btn btn-primary">이메일 문의</a>
+      <a href="https://github.com/minya8703" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="https://www.linkedin.com/in/minya8703" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="https://difud1106.tistory.com/" target="_blank" class="btn btn-outline">Blog</a>
     </div>
 
-    <!-- ANA 모달 -->
-    <div class="modal-overlay" id="modal-ana">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="닫기">&times;</button>
-            <h2 class="modal-title">ANA 항공 신 발권 시스템 복구</h2>
-            <table class="modal-table">
-                <tr><th>기간</th><td>2021.01 ~ 2021.02 (2개월)</td></tr>
-                <tr><th>상황</th><td>설계 80% + 개발 20% 상태에서 전임자 퇴사로 중단된 프로젝트</td></tr>
-            </table>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2013~15</span>
+        <div class="tl-company">아시아정보시스템</div>
+        <div class="tl-role">일본</div>
+      </div>
+      <div class="tl-item tl-gap">
+        <div class="tl-dot tl-dot-gap"></div>
+        <span class="tl-year tl-year-gap">2015~17</span>
+        <div class="tl-company tl-muted">이직 준비</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2017~21</span>
+        <div class="tl-company">스마트아이엔지</div>
+        <div class="tl-role">일본</div>
+      </div>
+      <div class="tl-item tl-gap">
+        <div class="tl-dot tl-dot-gap"></div>
+        <span class="tl-year tl-year-gap">2021~23</span>
+        <div class="tl-company tl-muted">귀국·기술 재정비</div>
+        <div class="tl-role tl-muted">교육과정 수료</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2023~26</span>
+        <div class="tl-company">NARINER</div>
+        <div class="tl-role">한국</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <h3 class="modal-section-title">수행 업무</h3>
-            <div class="modal-tasks">
-                <div class="modal-task-item">
-                    <div class="modal-task-num">1</div>
-                    <div class="modal-task-body">
-                        <h4>중단 프로젝트 인수 및 정상화</h4>
-                        <p>전임자 퇴사로 중단된 프로젝트를 인수하여 기존 설계 문서 분석 및 미완성 부분 파악. 2개월 만에 전체 프로젝트를 정상 궤도에 올림.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">2</div>
-                    <div class="modal-task-body">
-                        <h4>대규모 리팩터링</h4>
-                        <p>200줄 이상의 복잡한 메서드들을 30줄 단위의 단일 책임 모듈로 분리. 메서드당 평균 200줄 → 30줄로 85% 축소, 유지보수성 확보.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">3</div>
-                    <div class="modal-task-body">
-                        <h4>테스트 안전망 구축</h4>
-                        <p>JUnit5 기반 단위 테스트 358개를 작성하여 80% 이상의 커버리지 달성. 후임자가 안전하게 유지보수할 수 있는 기반 마련.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="modal-section-title">주요 성과</h3>
-            <div class="modal-stats">
-                <div class="modal-stat"><span class="modal-stat-value">2개월</span><span class="modal-stat-label">프로젝트 정상화</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">358개</span><span class="modal-stat-label">JUnit5 테스트</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">80%+</span><span class="modal-stat-label">테스트 커버리지</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">200→30줄</span><span class="modal-stat-label">메서드 리팩터링</span></div>
-            </div>
-
-            <h3 class="modal-section-title">기술 스택</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">intra-mart</span>
-                <span class="tech-tag">JUnit5</span>
-                <span class="tech-tag">Oracle</span>
-            </div>
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">기술 스택</div>
+      <h2>Technical Skills</h2>
+      <p class="section-sub">실무 프로젝트에서 직접 설계·구현한 기술 스택</p>
+    </div>
+    <div class="stack-grid fade-in">
+      <div class="stack-group">
+        <div class="stack-group-label">Core</div>
+        <div class="stack-items">
+          <span class="badge badge-hot">Java 17/21</span>
+          <span class="badge badge-hot">Spring Boot 3.x</span>
+          <span class="badge">Spring Data JPA</span>
+          <span class="badge">Spring Security</span>
+          <span class="badge">OAuth2 / JWT</span>
+          <span class="badge">MyBatis</span>
         </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Data &amp; Messaging</div>
+        <div class="stack-items">
+          <span class="badge badge-hot">Kafka</span>
+          <span class="badge badge-hot">Redis</span>
+          <span class="badge">MariaDB / MySQL</span>
+          <span class="badge">Oracle</span>
+          <span class="badge">SQL Server</span>
+          <span class="badge">Informatica PowerCenter</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Infra &amp; DevOps</div>
+        <div class="stack-items">
+          <span class="badge badge-hot">Kubernetes</span>
+          <span class="badge badge-hot">Docker</span>
+          <span class="badge">Jenkins</span>
+          <span class="badge">GitHub Actions</span>
+          <span class="badge">Prometheus</span>
+          <span class="badge">Grafana</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Integration</div>
+        <div class="stack-items">
+          <span class="badge badge-hot">webMethods EAI</span>
+          <span class="badge badge-hot">SAP JCo</span>
+          <span class="badge">RESTful API</span>
+          <span class="badge">Shell Script</span>
+          <span class="badge">Python (OCR)</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Frontend</div>
+        <div class="stack-items">
+          <span class="badge">TypeScript</span>
+          <span class="badge">React</span>
+          <span class="badge">Vue.js</span>
+          <span class="badge">JSP / Thymeleaf</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Languages</div>
+        <div class="stack-items">
+          <span class="badge">일본어 비즈니스</span>
+          <span class="badge">한국어 네이티브</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">프로젝트</div>
+      <h2>Project Experience</h2>
+      <p class="section-sub">클릭하면 상세 내용을 볼 수 있습니다</p>
     </div>
 
-    <!-- Credit Saison 모달 -->
-    <div class="modal-overlay" id="modal-saison">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="닫기">&times;</button>
-            <h2 class="modal-title">Credit Saison 데이터 통합 (1·2차)</h2>
-            <table class="modal-table">
-                <tr><th>기간</th><td>1차: 2013.04~2013.09 / 2차: 2014.01~2014.12</td></tr>
-                <tr><th>규모</th><td>2,500만 명 회원 데이터 마이그레이션</td></tr>
-            </table>
-
-            <h3 class="modal-section-title">수행 업무</h3>
-            <div class="modal-tasks">
-                <div class="modal-task-item">
-                    <div class="modal-task-num">1차</div>
-                    <div class="modal-task-body">
-                        <h4>ETL 매핑 및 데이터 검증</h4>
-                        <p>연체자 분류 로직 매핑, SQL 쿼리 검증 후 개선 쿼리 작성·제안. Teradata → Oracle 데이터 변환 이슈를 조기에 발견하여 정합성 이슈 0건 달성에 기여. 이 성과를 인정받아 2차 프로젝트 재투입 요청을 받음.</p>
-                    </div>
-                </div>
-                <div class="modal-task-item">
-                    <div class="modal-task-num">2차</div>
-                    <div class="modal-task-body">
-                        <h4>대규모 데이터 마이그레이션</h4>
-                        <p>2,500만 명 회원 데이터 마이그레이션 수행. ETL 매핑 및 변환 로직 개발, Teradata → Oracle 간 대용량 데이터 이관, 오류 데이터 보정 처리까지 담당. 정합성 이슈 0건으로 완료.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="modal-section-title">주요 성과</h3>
-            <div class="modal-stats">
-                <div class="modal-stat"><span class="modal-stat-value">2,500만</span><span class="modal-stat-label">회원 데이터 처리</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">0건</span><span class="modal-stat-label">정합성 이슈</span></div>
-                <div class="modal-stat"><span class="modal-stat-value">재투입</span><span class="modal-stat-label">1차 성과 인정</span></div>
-            </div>
-
-            <h3 class="modal-section-title">기술 스택</h3>
-            <div class="tech-tags">
-                <span class="tech-tag">Informatica PowerCenter</span>
-                <span class="tech-tag">Oracle</span>
-                <span class="tech-tag">Teradata</span>
-                <span class="tech-tag">PL/SQL</span>
-            </div>
+    <!-- 1. 한샘 EAI -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">01</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">한샘 webMethods EAI SAP 연동</span>
+            <span class="tag tag-live">운영 중</span>
+          </div>
+          <div class="project-meta">NARINER → 한샘 · 2023.06 ~ 2026.03 · 단독 담당</div>
+          <div class="project-desc">대기업 ERP 핵심 연동 인프라 50개+ 인터페이스를 단독으로 설계·운영·확장. 수동 배포 환경을 Jenkins CI/CD로 전환하고, Shell 모니터링으로 서버 다운 0건 달성.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">50+</span><span class="metric-label">인터페이스</span></div>
+            <div class="metric"><span class="metric-val">0건</span><span class="metric-label">서버 다운</span></div>
+            <div class="metric"><span class="metric-val">6개</span><span class="metric-label">중계사 전환</span></div>
+          </div>
         </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">핵심 기여</div>
+          <ul class="detail-list">
+            <li>SAP JCo 기반 RFC↔DB/WS/HTTP/FTP/Socket 등 11종 인터페이스 패턴 표준화 및 운영</li>
+            <li>Shell script 메모리 모니터링(80% 임계값 알람) → 선제 재기동으로 3개월 주기 장애 리스크 제거</li>
+            <li>Popbill Webhook → Barobill RESTful API 전환 설계 및 구현 (6개 인터페이스, 1~2개월 완료)</li>
+            <li>수동 파일 전송+Tomcat 수동 기동 → Git push 자동 빌드/배포 (Jenkins CI/CD 구축)</li>
+            <li>인터페이스 개발 가이드·배포 운영 매뉴얼 작성 → 퇴직 시 인수인계 완료</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge badge-hot">webMethods EAI</span>
+            <span class="badge badge-hot">SAP JCo</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">Shell Script</span>
+            <span class="badge">Git</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">Tomcat</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="script.js"></script>
+    <!-- 2. Betax -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">02</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">Betax 회계·세무 SaaS</span>
+            <span class="tag tag-live">실 서비스</span>
+            <span class="tag tag-solo">자사 개발</span>
+          </div>
+          <div class="project-meta">NARINER 자체 개발 · 3개 고객사 운영 중</div>
+          <div class="project-desc">Kafka 비동기 처리, Redis 캐싱, Kubernetes 오케스트레이션, Prometheus+Grafana 모니터링을 실 서비스에 적용한 회계·세무 웹 SaaS.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">Kafka</span><span class="metric-label">비동기 처리</span></div>
+            <div class="metric"><span class="metric-val">Redis</span><span class="metric-label">캐싱 전략</span></div>
+            <div class="metric"><span class="metric-val">K8s</span><span class="metric-label">오케스트레이션</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">Kafka 적용</div>
+          <ul class="detail-list">
+            <li>세금계산서 발행 동기 호출 → Kafka 비동기 전환 (외부 API 장애 격리)</li>
+            <li>전표 저장 이벤트 Producer/Consumer 설계 (journal-events, budget-alerts, tax-invoice-requests 등 7개 토픽)</li>
+            <li>DLT(Dead Letter Topic) 에러 처리 및 FixedBackOff 재시도 로직 구현</li>
+            <li>응답 시간: 동기 3~5초 → 비동기 즉시 응답 구조로 전환</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">Redis 캐싱 전략</div>
+          <ul class="detail-list">
+            <li>환율 데이터 TTL 24시간 캐싱 (일 수십~수백 회 반복 조회 → DB 부하 감소)</li>
+            <li>회사·거래처 마스터 TTL 12시간, 분석키 24시간 등 도메인별 TTL 차등 설계</li>
+            <li>CacheErrorHandler로 Redis 장애 시 DB fallback — 서비스 중단 없는 구조</li>
+            <li>@Cacheable / @CacheEvict 기반 캐시 무효화 전략 적용 (32개 메서드)</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">인프라</div>
+          <ul class="detail-list">
+            <li>Docker Compose 로컬 환경 → Kubernetes 운영 환경 (HPA, Rolling Update, Liveness/Readiness Probe)</li>
+            <li>Prometheus + Grafana 모니터링 대시보드 구축 (캐시 히트율, Kafka Consumer Lag 등)</li>
+            <li>Spring Actuator + Micrometer 기반 메트릭 수집</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge badge-hot">Java 21</span>
+            <span class="badge badge-hot">Spring Boot 3.1</span>
+            <span class="badge badge-hot">Kafka</span>
+            <span class="badge badge-hot">Redis</span>
+            <span class="badge badge-hot">Kubernetes</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Prometheus</span>
+            <span class="badge">Grafana</span>
+            <span class="badge">MariaDB</span>
+            <span class="badge">React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. MSA 세금계산서 -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">03</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">MSA 기반 세금계산서 솔루션</span>
+            <span class="tag tag-live">운영 중</span>
+          </div>
+          <div class="project-meta">NARINER → 한샘 · 2024.02 ~ 현재</div>
+          <div class="project-desc">모놀리식 외부 시스템을 JCo Server / 중계서버 / 회계솔루션 3개 독립 서비스로 분해. 건당 과금 구조 제거 및 처리 시간 70% 단축.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">70%</span><span class="metric-label">처리시간 단축</span></div>
+            <div class="metric"><span class="metric-val">0건</span><span class="metric-label">중복 발행 오류</span></div>
+            <div class="metric"><span class="metric-val">5분→1.5분</span><span class="metric-label">건당 처리</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">핵심 기여</div>
+          <ul class="detail-list">
+            <li>SAP JCo Server ↔ 중계서버 ↔ 회계솔루션 MSA 아키텍처 전체 설계</li>
+            <li>서비스별 독립 포트·DB 설계, RESTful API 기반 JSON 통신으로 결합도 최소화</li>
+            <li>Git repository 분리 및 독립 배포 파이프라인 구축</li>
+            <li>협력업체 휴·폐업 조회 갭: 주 1회 → 일 1회로 단축 (사기성 계약 리스크 감소)</li>
+            <li>MSA 설계 문서 작성 → 한샘 SAP팀 보고 및 설득</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge badge-hot">Java</span>
+            <span class="badge badge-hot">Spring Boot</span>
+            <span class="badge badge-hot">SAP JCo</span>
+            <span class="badge">REST API</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">MariaDB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Invoice OCR -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">04</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">Invoice OCR 자동 추출 시스템</span>
+            <span class="tag tag-solo">1인 개발</span>
+            <span class="tag tag-live">파일럿 운영</span>
+          </div>
+          <div class="project-meta">NARINER → 한샘 · 2024.10 ~ 현재</div>
+          <div class="project-desc">GPU 없는 사내 CPU 환경에서 중국·동남아 12개 거래처 다국어 인보이스 PDF 18개 필드 자동 추출. 4중 폴백 OCR 파이프라인 자체 설계.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">12개</span><span class="metric-label">거래처 대응</span></div>
+            <div class="metric"><span class="metric-val">5분→수초</span><span class="metric-label">처리 시간</span></div>
+            <div class="metric"><span class="metric-val">18개</span><span class="metric-label">자동 추출 필드</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">기술적 판단</div>
+          <ul class="detail-list">
+            <li>상용 OCR 솔루션(GPU 필수) 적용 불가 → 4중 폴백 파이프라인 자체 구현 (CRAFT+Swin → PaddleOCR → EasyOCR → PyMuPDF)</li>
+            <li>텍스트/스캔 PDF 자동 감지로 불필요한 OCR 호출 제거</li>
+            <li>EXTRACTOR_REGISTRY 패턴으로 회사별 추출기 단일 관리</li>
+            <li>바운딩 박스 좌표 학습 시스템 → 신규 거래처 즉시 대응</li>
+            <li>비개발자 담당자가 웹 UI로 좌표 직접 설정 가능하도록 설계 (운영 자립성 확보)</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge">Python</span>
+            <span class="badge">CRAFT+Swin</span>
+            <span class="badge">PaddleOCR</span>
+            <span class="badge">EasyOCR</span>
+            <span class="badge">PyMuPDF</span>
+            <span class="badge">MariaDB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ANA -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">05</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">ANA 항공 신 발권 시스템 복구</span>
+            <span class="tag tag-ja">일본</span>
+          </div>
+          <div class="project-meta">스마트아이엔지 → 전일본공수(ANA) · 2021.01 ~ 2021.02 · 7인 팀</div>
+          <div class="project-desc">전담자 퇴사로 진행률 20%에서 중단된 프로젝트를 2개월 내 100% 완료. 리팩터링 주도 및 JUnit5 테스트 358개 작성.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">20→100%</span><span class="metric-label">완성도</span></div>
+            <div class="metric"><span class="metric-val">358개</span><span class="metric-label">단위 테스트</span></div>
+            <div class="metric"><span class="metric-val">80%+</span><span class="metric-label">커버리지</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">핵심 기여</div>
+          <ul class="detail-list">
+            <li>NTT 데이터 intra-mart 프레임워크를 설계 파악과 코드 작성 병행으로 즉시 실무 투입</li>
+            <li>메서드 평균 200줄 → 30줄 리팩터링 (단일 책임 모듈 분리, 본인 주도)</li>
+            <li>JUnit5 단위 테스트 358개 작성 → 커버리지 0% → 80%+ 달성</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge">Java</span>
+            <span class="badge">Spring Boot</span>
+            <span class="badge">intra-mart</span>
+            <span class="badge">Thymeleaf</span>
+            <span class="badge">JUnit5</span>
+            <span class="badge">SVN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. MONEX -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">06</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">MONEX 증권 MFA 인증 시스템</span>
+            <span class="tag tag-ja">일본</span>
+            <span class="tag tag-live">현재 운영</span>
+          </div>
+          <div class="project-meta">스마트아이엔지 → MONEX, Inc. · 2021.03 ~ 2021.05</div>
+          <div class="project-desc">실제 부정 로그인·비정상 출금 사고 이후 MFA 시스템 도입. Servlet Filter 패턴으로 레거시 무중단 보안 강화. 2021.09 출금 SMS 이중인증 공식 서비스화.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">99.2%</span><span class="metric-label">SMS 성공률</span></div>
+            <div class="metric"><span class="metric-val">0건</span><span class="metric-label">도입 후 장애</span></div>
+            <div class="metric"><span class="metric-val">4→2단계</span><span class="metric-label">UX 개선 채택</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">핵심 기여</div>
+          <ul class="detail-list">
+            <li>Servlet Filter 패턴으로 기존 레거시(10년+ 운영) 코드 수정 없이 MFA 레이어 비침투적 통합</li>
+            <li>SMS(SoftBank Message Link API)·Email·Google OTP 3종 인증 수단 선택 구조 설계</li>
+            <li>초기 5단계 인증 흐름 → 3단계 축소 설계안 작성 및 고객사 설득·채택</li>
+            <li>2021.09.27 MONEX 공식 출금 SMS 이중인증 서비스 론칭 (공식 페이지 확인 완료)</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">실제 운영 화면</div>
+          <a href="https://info.monex.co.jp/help/security/sms-auth/apply.html" target="_blank" rel="noopener"
+             style="display:block; margin-bottom:8px; font-size:12px; color:var(--accent); text-decoration:none;">
+            ↗ MONEX 공식 SMS 인증 안내 페이지 — 현재 운영 중 확인
+          </a>
+          <img
+            src="images/monex-sms-auth.png"
+            alt="MONEX 증권 SMS 인증 시스템 운영 화면"
+            style="width:100%; border-radius:6px; border:1px solid var(--border2); cursor:pointer;"
+            onclick="event.stopPropagation(); window.open('images/monex-sms-auth.png','_blank')"
+          >
+          <p style="font-size:11px; color:var(--text3); margin-top:6px;">
+            MONEX 증권 공식 도움말 페이지 — 설계·구현한 SMS 이중인증 시스템 현재 운영 중 (출처: info.monex.co.jp)
+          </p>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge">Java</span>
+            <span class="badge">Servlet Filter</span>
+            <span class="badge">MyBatis</span>
+            <span class="badge">SoftBank Message Link API</span>
+            <span class="badge">Google OTP</span>
+            <span class="badge">JSP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Credit Saison -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">07</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">Credit Saison 신용카드 데이터 통합</span>
+            <span class="tag tag-ja">일본</span>
+          </div>
+          <div class="project-meta">아시아정보시스템 → Credit Saison · 2013.04 ~ 2014.12 (1·2차) · 사용자 약 2,500만</div>
+          <div class="project-desc">2,500만 명 규모 지급·연체 데이터 ETL 이관. 1차 무장애 완료 후 고품질 평가로 2차 재투입.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">2,500만</span><span class="metric-label">회원 데이터</span></div>
+            <div class="metric"><span class="metric-val">0건</span><span class="metric-label">정합성 이슈</span></div>
+            <div class="metric"><span class="metric-val">2차 재투입</span><span class="metric-label">성과 인정</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">핵심 기여</div>
+          <ul class="detail-list">
+            <li>Informatica PowerCenter 매뉴얼 자습으로 실무 즉시 적용</li>
+            <li>ETL 매핑 과정에서 기본설계·상세설계 불일치 발견 → 매번 조율하며 정합성 확보</li>
+            <li>일본어 한자·히라가나 기반 마스킹 테스트 데이터 직접 생성 (실데이터 의존 없이 검증)</li>
+            <li>Oracle DBMS 재설계로 사용자 증가에 따른 성능 저하 해소</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge badge-hot">Informatica PowerCenter</span>
+            <span class="badge">Oracle</span>
+            <span class="badge">Teradata</span>
+            <span class="badge">PL/SQL</span>
+            <span class="badge">SQL Developer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. JASSO -->
+    <div class="project-card fade-in" onclick="toggle(this)">
+      <div class="project-header">
+        <div class="project-num">08</div>
+        <div class="project-main">
+          <div class="project-top">
+            <span class="project-title">JASSO 장학금 시스템 재구축</span>
+            <span class="tag tag-ja">일본</span>
+          </div>
+          <div class="project-meta">스마트아이엔지 → 일본학생지원기구(JASSO) · 2018.01 ~ 2018.12</div>
+          <div class="project-desc">폐쇄망 환경에서 Appium 테스트 자동화 인프라를 직접 구축. 수작업 에비던스 캡처를 자동화하여 테스트 속도 2배 향상 달성.</div>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">2배</span><span class="metric-label">테스트 속도 향상</span></div>
+            <div class="metric"><span class="metric-val">약 170%</span><span class="metric-label">접속자 증가</span></div>
+            <div class="metric"><span class="metric-val">20개+</span><span class="metric-label">멀티디바이스 화면</span></div>
+          </div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+      <div class="project-detail">
+        <div class="detail-section">
+          <div class="detail-label">Appium 자동화 구축</div>
+          <ul class="detail-list">
+            <li>폐쇄망 환경에서 Appium 테스트 가능 환경을 처음부터 구성 — 환경 설정부터 매뉴얼화하여 팀 내 재현 가능한 구조 확립</li>
+            <li>수작업 화면 에비던스(스크린샷) 캡처 → Appium 자동화로 전환, 테스트 속도 100% 향상 (2배)</li>
+            <li>PC · 태블릿 · 모바일 3종 디바이스 테스트 자동화 환경 구성</li>
+            <li>테스트 자동화 가이드 작성 → 팀 내 지식 공유</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">운영 중인 서비스</div>
+          <a href="https://www.jasso.go.jp/shougakukin/index.html" target="_blank" rel="noopener"
+             style="display:block; margin-bottom:8px; font-size:12px; color:var(--accent); text-decoration:none;">
+            ↗ JASSO 스카라넷 — 현재 운영 중인 서비스 확인
+          </a>
+          <img
+            src="images/jasso-main.png"
+            alt="JASSO 스카라넷 장학금 시스템 화면"
+            style="width:100%; border-radius:6px; border:1px solid var(--border2); cursor:pointer;"
+            onclick="event.stopPropagation(); window.open('images/jasso-main.png','_blank')"
+          >
+          <p style="font-size:11px; color:var(--text3); margin-top:6px;">
+            일본학생지원기구(JASSO) 스카라넷 공식 화면 — 멀티디바이스 대응 리뉴얼 참여 프로젝트
+          </p>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">기술 스택</div>
+          <div class="stack-row">
+            <span class="badge badge-hot">Appium</span>
+            <span class="badge">Java</span>
+            <span class="badge">JSP</span>
+            <span class="badge">jQuery</span>
+            <span class="badge">HiRDB</span>
+            <span class="badge">JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">경력</div>
+      <h2>Career History</h2>
+    </div>
+    <div class="career-grid fade-in">
+      <div class="career-period">2023.06<br>~ 2026.03</div>
+      <div class="career-content">
+        <div class="career-company">NARINER (나린이알)</div>
+        <div class="career-role">Integration Architect · 한국</div>
+        <div class="career-desc">한샘 EAI SAP 연동 단독 운영 (50개+ 인터페이스), MSA 세금계산서 솔루션 설계, Invoice OCR 자동화, Betax 회계 SaaS 개발 (Kafka·Redis·K8s)</div>
+      </div>
+
+      <div class="career-period career-period-gap">2022.03<br>~ 2023.05</div>
+      <div class="career-content career-content-gap">
+        <div class="career-company career-gap-text">국내 취업 준비</div>
+        <div class="career-role career-gap-text">기술 재정비 · 구직</div>
+        <div class="career-desc career-gap-text">일본 SI 환경과 국내 개발 환경 차이 보완. 국내 기술 스택 전환 준비.</div>
+      </div>
+
+      <div class="career-period career-period-gap">2021.09<br>~ 2022.03</div>
+      <div class="career-content career-content-gap">
+        <div class="career-company career-gap-text">국비 교육과정 수료</div>
+        <div class="career-role career-gap-text">자율주행 IoT·Bigdata·AI 기술융합 개발자 양성</div>
+        <div class="career-desc career-gap-text">귀국 후 국내 기술 스택 재정비 목적으로 이수.</div>
+      </div>
+
+      <div class="career-period career-period-gap">2021.06</div>
+      <div class="career-content career-content-gap">
+        <div class="career-company career-gap-text">일본 → 한국 귀국</div>
+        <div class="career-role career-gap-text">육아 및 생활 기반 전환</div>
+      </div>
+
+      <div class="career-period">2017.04<br>~ 2021.05</div>
+      <div class="career-content">
+        <div class="career-company">스마트아이엔지 (일본)</div>
+        <div class="career-role">Full-stack Developer · 주임</div>
+        <div class="career-desc">MONEX 증권 MFA, ANA 발권 시스템, 규슈전력 영업 시스템, Yokogawa 렌털, JASSO 장학금, Usami Koyu 정유 시스템</div>
+      </div>
+
+      <div class="career-period career-period-gap">2015.09<br>~ 2017.03</div>
+      <div class="career-content career-content-gap">
+        <div class="career-company career-gap-text">이직 준비</div>
+        <div class="career-role career-gap-text">일본 체류</div>
+      </div>
+
+      <div class="career-period">2013.04<br>~ 2015.09</div>
+      <div class="career-content">
+        <div class="career-company">아시아정보시스템 (일본)</div>
+        <div class="career-role">Data Engineer</div>
+        <div class="career-desc">Credit Saison 2,500만 건 데이터 이관 (1·2차), 신일본제철 운송관리 시스템 유지보수</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY -->
+<section id="industry">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">도메인 전문성</div>
+      <h2>Industry Experience</h2>
+      <p class="section-sub">일본 10년 + 한국 3년 — 장애 허용도가 극히 낮은 엔터프라이즈 시스템 일관 담당</p>
+    </div>
+    <div class="industry-grid fade-in">
+      <div class="industry-item">
+        <div class="industry-sector">금융</div>
+        <div class="industry-companies">MONEX 증권<br>Credit Saison<br>MUFG (연동)</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-sector">제조·유통</div>
+        <div class="industry-companies">한샘 (ERP)<br>신일본제철<br>Yokogawa</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-sector">항공·에너지</div>
+        <div class="industry-companies">ANA 전일본공수<br>규슈전력<br>Usami Koyu</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-sector">교육·공공</div>
+        <div class="industry-companies">JASSO<br>(일본학생지원기구)</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-sector">SaaS</div>
+        <div class="industry-companies">Betax 회계·세무<br>(NARINER 자체)</div>
+      </div>
+    </div>
+    <p class="industry-closing fade-in">검증에서 시작하고, 안정으로 마무리하는 엔지니어.</p>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-links">
+    <a href="mailto:minya8703@gmail.com">minya8703@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/minya8703" target="_blank">GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/minya8703" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="https://difud1106.tistory.com/" target="_blank">Blog</a>
+  </p>
+  <p class="footer-copy">© 2026 Min YaRyung · Backend Engineer</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
