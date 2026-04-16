@@ -447,19 +447,14 @@
         </div>
         <div class="detail-section">
           <div class="detail-label">실제 운영 화면</div>
-          <a href="https://info.monex.co.jp/help/security/sms-auth/apply.html" target="_blank" rel="noopener"
-             style="display:block; margin-bottom:8px; font-size:12px; color:var(--accent); text-decoration:none;">
-            ↗ MONEX 공식 SMS 인증 안내 페이지 — 현재 운영 중 확인
-          </a>
-          <img
-            src="images/monex-sms-auth.png"
-            alt="MONEX 증권 SMS 인증 시스템 운영 화면"
-            style="width:100%; border-radius:6px; border:1px solid var(--border2); cursor:pointer;"
-            onclick="event.stopPropagation(); window.open('images/monex-sms-auth.png','_blank')"
-          >
-          <p style="font-size:11px; color:var(--text3); margin-top:6px;">
-            MONEX 증권 공식 도움말 페이지 — 설계·구현한 SMS 이중인증 시스템 현재 운영 중 (출처: info.monex.co.jp)
-          </p>
+          <div class="evidence-row">
+            <button class="evidence-btn" onclick="event.stopPropagation(); openImgModal('images/monex-sms-auth.png', 'MONEX 증권 SMS 인증 시스템 — 설계·구현한 시스템 현재 운영 중 (출처: info.monex.co.jp)')">
+              <span class="evidence-icon">🖼</span> 운영 화면 스크린샷 보기
+            </button>
+            <a href="https://info.monex.co.jp/help/security/sms-auth/apply.html" target="_blank" rel="noopener" class="evidence-link" onclick="event.stopPropagation()">
+              ↗ 공식 페이지 확인
+            </a>
+          </div>
         </div>
         <div class="detail-section">
           <div class="detail-label">기술 스택</div>
@@ -548,19 +543,14 @@
         </div>
         <div class="detail-section">
           <div class="detail-label">운영 중인 서비스</div>
-          <a href="https://www.jasso.go.jp/shougakukin/index.html" target="_blank" rel="noopener"
-             style="display:block; margin-bottom:8px; font-size:12px; color:var(--accent); text-decoration:none;">
-            ↗ JASSO 스카라넷 — 현재 운영 중인 서비스 확인
-          </a>
-          <img
-            src="images/jasso-main.png"
-            alt="JASSO 스카라넷 장학금 시스템 화면"
-            style="width:100%; border-radius:6px; border:1px solid var(--border2); cursor:pointer;"
-            onclick="event.stopPropagation(); window.open('images/jasso-main.png','_blank')"
-          >
-          <p style="font-size:11px; color:var(--text3); margin-top:6px;">
-            일본학생지원기구(JASSO) 스카라넷 공식 화면 — 멀티디바이스 대응 리뉴얼 참여 프로젝트
-          </p>
+          <div class="evidence-row">
+            <button class="evidence-btn" onclick="event.stopPropagation(); openImgModal('images/jasso-main.png', 'JASSO 스카라넷 — 멀티디바이스 대응 리뉴얼 및 Appium 테스트 자동화 참여 프로젝트')">
+              <span class="evidence-icon">🖼</span> 서비스 화면 스크린샷 보기
+            </button>
+            <a href="https://www.jasso.go.jp/shougakukin/index.html" target="_blank" rel="noopener" class="evidence-link" onclick="event.stopPropagation()">
+              ↗ JASSO 공식 사이트
+            </a>
+          </div>
         </div>
         <div class="detail-section">
           <div class="detail-label">기술 스택</div>
@@ -683,6 +673,15 @@
   </p>
   <p class="footer-copy">© 2026 Min YaRyung · Backend Engineer</p>
 </footer>
+
+<!-- 이미지 모달 -->
+<div class="img-modal-overlay" id="imgModal" onclick="closeImgModal()">
+  <div class="img-modal-box" onclick="event.stopPropagation()">
+    <button class="img-modal-close" onclick="closeImgModal()">×</button>
+    <img id="imgModalSrc" src="" alt="" class="img-modal-img">
+    <p id="imgModalCaption" class="img-modal-caption"></p>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
