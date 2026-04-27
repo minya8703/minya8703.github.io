@@ -336,7 +336,7 @@
             <span class="tag tag-solo">파일럿 진행</span>
           </div>
           <div class="project-meta">NARINER → 한샘 · 2024.10 ~ 2026.03</div>
-          <div class="project-desc">GPU 없는 사내 CPU 환경에서 중국·동남아 12개 거래처 다국어 인보이스 PDF 18개 필드 자동 추출. 4중 폴백 OCR 파이프라인 자체 설계.</div>
+          <div class="project-desc">CPU 환경에서 중국·동남아 12개 거래처 다국어 인보이스 PDF 18개 필드 자동 추출. PyMuPDF 텍스트 추출 → 정규화 → 회사별 추출 규칙 매핑의 3단계 파이프라인 자체 설계.</div>
           <div class="project-metrics">
             <div class="metric"><span class="metric-val">12개</span><span class="metric-label">거래처 대응</span></div>
             <div class="metric"><span class="metric-val">5분→수초</span><span class="metric-label">처리 시간</span></div>
@@ -349,7 +349,8 @@
         <div class="detail-section">
           <div class="detail-label">기술적 판단</div>
           <ul class="detail-list">
-            <li>상용 OCR 솔루션(GPU 필수) 적용 불가 → 4중 폴백 파이프라인 자체 구현 (CRAFT+Swin → PaddleOCR → EasyOCR → PyMuPDF)</li>
+            <li>PyMuPDF로 텍스트 추출 → 회사명·금액 표기 정규화(노이즈 제거) → 회사별 추출 규칙 매핑의 3단계 파이프라인 설계</li>
+            <li>스캔 PDF(텍스트 레이어 없음) 감지 시 PaddleOCR → EasyOCR 폴백 처리</li>
             <li>텍스트/스캔 PDF 자동 감지로 불필요한 OCR 호출 제거</li>
             <li>EXTRACTOR_REGISTRY 패턴으로 회사별 추출기 단일 관리</li>
             <li>바운딩 박스 좌표 학습 시스템 → 신규 거래처 즉시 대응</li>
@@ -360,11 +361,12 @@
           <div class="detail-label">기술 스택</div>
           <div class="stack-row">
             <span class="badge">Python</span>
-            <span class="badge">CRAFT+Swin</span>
+            <span class="badge badge-hot">FastAPI</span>
+            <span class="badge badge-hot">PyMuPDF</span>
             <span class="badge">PaddleOCR</span>
             <span class="badge">EasyOCR</span>
-            <span class="badge">PyMuPDF</span>
             <span class="badge">MariaDB</span>
+            <span class="badge">React</span>
           </div>
         </div>
       </div>
